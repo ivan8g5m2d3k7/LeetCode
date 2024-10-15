@@ -1,5 +1,8 @@
 <h1 align="center"><img src="leetcode_logo.svg" height="100" title="LeetCode"/></h1>
 
+<a href="https://leetcode.com/u/ivan8g5m2d3k7/"> 
+         <img src="https://leetcard.jacoblin.cool/ivan8g5m2d3k7?theme=light&font=Noto%20Sans&animation=false" height="165" title="LeetCode Statistics"/></a>
+         
 This repository contains my solutions to problems that were included either in the [LeetCode Courses](https://leetcode.com/explore/) (also called Explore Cards) that I have completed or in the [LeetCode Problemset](https://leetcode.com/problemset/).
 
 I am using the [LeetHub v3](https://chromewebstore.google.com/u/1/detail/leethub-v3/kdkgpjpenaeoodajljkflmlnkoihkmda) Google Chrome extension to sync my problem submissions with this repository.
