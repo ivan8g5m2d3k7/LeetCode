@@ -1,21 +1,21 @@
 class Solution {
     public int findTargetSumWays(int[] nums, int target) {
-            int[] res = new int[1];
-            
-            checkSum(nums, target, 0, 0, res);
-            return res[0];
-        }
+            Map<Integer, Integer> sumToCount = new HashMap<>();
+            sumToCount.put(nums[0], 1);
+            sumToCount.put(-nums[0], sumToCount.getOrDefault(-nums[0], 0)+ 1);
 
-        public void checkSum(int[] nums, int target, int currSum, int index, int[] res) {
-            if (index == nums.length) {
-                if (currSum == target) {
-                    res[0]++;
+            for (int i = 1; i < nums.length; i++) {
+                Map<Integer, Integer> map = new HashMap<>();
+                for (Map.Entry<Integer, Integer> entry : sumToCount.entrySet()) {
+                    int sum1 = entry.getKey() + nums[i];
+                    int sum2 = entry.getKey() - nums[i];
+
+                    map.put(sum1, entry.getValue() + map.getOrDefault(sum1, 0));
+                    map.put(sum2, entry.getValue() + map.getOrDefault(sum2, 0));
                 }
-                return;
+                sumToCount = map;
             }
 
-            int curr = nums[index];
-            checkSum(nums, target, currSum + curr, index + 1, res);
-            checkSum(nums, target, currSum - curr, index + 1, res);
+            return sumToCount.getOrDefault(target, 0);
         }
 }
