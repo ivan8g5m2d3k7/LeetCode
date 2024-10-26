@@ -4,8 +4,18 @@ class Solution {
             for (int num : nums) {
                 numToCount.put(num, numToCount.getOrDefault(num, 0) + 1);
             }
-            
-            return numToCount.entrySet().stream().sorted(Comparator.comparing(Map.Entry<Integer, Integer>::getValue).reversed())
-                    .limit(k).map(Map.Entry::getKey).mapToInt(Integer::intValue).toArray();
+            PriorityQueue<Integer> minHeap = new PriorityQueue<>((x, y) -> Integer.compare(numToCount.get(x), numToCount.get(y)));
+            numToCount.entrySet().forEach(e -> {
+                if (minHeap.size() < k) {
+                    minHeap.offer(e.getKey());
+                } else {
+                    if (numToCount.get(minHeap.peek()) < e.getValue()) {
+                        minHeap.poll();
+                        minHeap.offer(e.getKey());
+                    }
+                }
+            });
+
+            return minHeap.stream().mapToInt(Integer::intValue).toArray();
         }
 }
