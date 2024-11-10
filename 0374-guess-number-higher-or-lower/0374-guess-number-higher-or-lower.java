@@ -1,11 +1,7 @@
-/** 
- * Forward declaration of guess API.
- * @param  num   your guess
- * @return 	     -1 if num is higher than the picked number
- *			      1 if num is lower than the picked number
- *               otherwise return 0
- * int guess(int num);
- */
+/* The guess API is defined in the parent class GuessGame.
+   @param num, your guess
+   @return -1 if my number is lower, 1 if my number is higher, otherwise return 0
+      int guess(int num); */
 
 public class Solution extends GuessGame {
     public int guessNumber(int n) {
@@ -24,6 +20,6 @@ public class Solution extends GuessGame {
                     }
                 }
 
-                return (int) right;
+                return -1;
             }
 }
