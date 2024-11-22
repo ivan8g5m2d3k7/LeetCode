@@ -14,27 +14,29 @@
  * }
  */
 class Solution {
-     public int closestValue(TreeNode root, double target) {
-            TreeNode minNode = root;
-            double minDist = Integer.MAX_VALUE;
-            while (root != null) {
-                double dist = Math.abs(root.val - target);
-                if (dist < minDist) {
-                    minNode = root;
-                    minDist = dist;
-                } else if (dist == minDist && root.val < minNode.val) {
-                    minNode = root;
-                }
-                
-                if (target == root.val) {
-                    break;
-                } else if (target < root.val) {
-                    root = root.left;
-                } else {
-                    root = root.right;
-                }
-            }
-            
+    TreeNode minNode = null;
+        double minDist = Integer.MAX_VALUE;
+
+        public int closestValue(TreeNode root, double target) {
+            findMin(root, target);
             return minNode.val;
+        }
+
+        public void findMin(TreeNode node, double target) {
+            if (node == null) {
+                return;
+            }
+
+            int val = node.val;
+            double dist = Math.abs(val - target);
+            if (dist < minDist) {
+                minNode = node;
+                minDist = dist;
+            } else if (dist == minDist && val < minNode.val) {
+                minNode = node;
+            }
+
+            findMin(node.left, target);
+            findMin(node.right, target);
         }
 }
