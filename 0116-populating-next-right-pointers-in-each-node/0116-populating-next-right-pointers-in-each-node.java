@@ -23,7 +23,6 @@ class Node {
 
 class Solution {
      public Node connect(Node root) {
-            Deque<Node> stack = new ArrayDeque<>();
             if (root == null) {
                 return root;
             }
