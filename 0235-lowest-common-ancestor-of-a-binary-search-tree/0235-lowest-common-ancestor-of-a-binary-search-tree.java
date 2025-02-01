@@ -9,27 +9,13 @@
  */
 
 class Solution {
-    private TreeNode result;
-
-        public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-            traverse(root, p, q);
-            return result;
-        }
-
-        public int traverse(TreeNode node, TreeNode p, TreeNode q) {
-            if (node == null) {
-                return 0;
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+            if (p.val < root.val && q.val < root.val) {
+                return lowestCommonAncestor(root.left, p, q);
+            } else if (p.val > root.val && q.val > root.val) {
+                return lowestCommonAncestor(root.right, p, q);
+            } else {
+                return root;
             }
-
-            int a = 0;
-            if (node.equals(p) || node.equals(q)) {
-                a += 1;
-            }
-            a += traverse(node.left, p, q) + traverse(node.right, p, q);
-
-            if (a > 1 && result == null) {
-                result = node;
-            }
-            return a;
         }
 }
