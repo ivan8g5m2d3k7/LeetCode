@@ -24,4 +24,9 @@ At the moment, I am doing the [Course Layers](https://leetcode.com/explore/learn
          <li><a href="https://leetcode.com/explore/learn/card/hash-table/">Hash Table</a></li>
          <li><a href="https://leetcode.com/explore/learn/card/queue-stack/">Queue & Stack</a></li>
          <li><a href="https://leetcode.com/explore/learn/card/heap/">Heap</a></li>
+         <li><a href="https://leetcode.com/explore/learn/card/binary-search/">Binary Search</a></li>
+         <li><a href="https://leetcode.com/explore/learn/card/data-structure-tree/">Binary Tree</a></li>
+         <li><a href="https://leetcode.com/explore/learn/card/recursion-i/">Recursion I</a></li>
+         <li><a href="https://leetcode.com/explore/learn/card/introduction-to-data-structure-binary-search-tree/">Binary Search Tree</a></li>
+         <li><a href="https://leetcode.com/explore/learn/card/recursion-ii/">Recursion II</a></li>
 </ol>
