@@ -1,17 +1,12 @@
 class Solution {
-        public int singleNumber(int[] nums) {
-            int result = 0;
-            for (int i = 0; i < 32; i++) {
-                int bit = 0;
-                for (int num : nums) {
-                    bit += (num >> i) & 1;
-                }
-
-                bit %= 3;
-
-                result |= bit << i;
+    public int singleNumber(int[] nums) {
+            int one = 0;
+            int two = 0;
+            for (int n : nums) {
+                one = (one ^ n) & (~two);
+                two = (two ^ n) & (~one);
             }
-
-            return result;
+            
+            return one;
         }
-    }
+}
