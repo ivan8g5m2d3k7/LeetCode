@@ -8,27 +8,26 @@ class Solution {
                 adj.get(edge[0]).add(edge[1]);
                 adj.get(edge[1]).add(edge[0]);
             }
-
-            Set<Integer> visited = new HashSet<>(n);
-            Deque<Integer> stack = new ArrayDeque<>();
-            stack.push(source);
+            
+            Set<Integer> visited = new HashSet<>();
+            Deque<Integer> queue = new ArrayDeque<>();
             visited.add(source);
-            int current = -1;
-
-            while (!stack.isEmpty()) {
-                current = stack.pop();
+            queue.offer(source);
+            
+            while (!queue.isEmpty()) {
+                int current = queue.poll();
                 if (current == destination) {
-                    break;
+                    return true;
                 }
-
+                
                 for (int v : adj.get(current)) {
                     if (!visited.contains(v)) {
                         visited.add(v);
-                        stack.push(v);
+                        queue.offer(v);
                     }
                 }
             }
-
-            return current == destination;
+            
+            return false;
         }
     }
