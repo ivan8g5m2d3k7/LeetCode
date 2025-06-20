@@ -5,6 +5,9 @@ class Solution {
             Arrays.sort(nums);
 
             for (int i = 0; i < n; i++) {
+                if (i > 0 && nums[i - 1] == nums[i]) {
+                    continue;
+                }
                 Set<Integer> seen = new HashSet<>();
                 int left = i + 1;
                 int right = n - 1;
@@ -25,7 +28,7 @@ class Solution {
                     }
                 }
             }
-            
+
             return new ArrayList<>(set);
         }
     }
